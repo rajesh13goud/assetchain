@@ -1,0 +1,217 @@
+<html>
+    
+         <head>
+                
+     <link rel="manifest" href="../manifest.json">
+     <script async  src="https://cdn.rawgit.com/GoogleChrome/pwacompat/v2.0.1/pwacompat.min.js"></script>
+     <script src="../index.js"></script>
+                <style>
+                        .center{
+                            font-size : 300%;
+                            position: absolute;
+                            top: 50%;
+                            left : 50%;
+                            transform : translate(-50%,-50%)
+                        }
+                        .page1{
+                            position: absolute;
+                            top: 0;
+                            left:0;
+                            width:100vw;
+                            height:100vh;
+                            background-color: red;
+                        }
+                        .page2{
+                            display: none;
+                            position: absolute;
+                            top: 0;
+                            left:0;
+                            width:100vw;
+                            height:100vh;
+                            background-color:yellow;
+                        }
+                        .page3{
+                            display: none;
+                            position: absolute;
+                            top: 0;
+                            left:0;
+                            width:100vw;
+                            height:100vh;
+                            background-color:green;
+                        }
+                    </style> 
+           
+          
+        </head>
+         
+    
+    <body>
+<form action="/registration" method="GET" enctype="application/x-www-form-urlencoded">     <div class="page1" id="page1"
+     ontouchstart = "p1handleTouchStart(event)"
+     ontouchmove = "p1handleTouchMove(event)"
+     ontouchend = "p1handleTouchEnd(event)"><span class="center">Page 1</span>
+     <button type="submit" id="sub1">Sign Up !</button></div>
+     <div class="page2" id="page2"
+     ontouchstart = "p2handleTouchStart(event)"
+     ontouchmove = "p2handleTouchMove(event)"
+     ontouchend = "p2handleTouchEnd(event)"><span class="center">Page 2</span>
+     <button type="submit" id="sub2">Sign Up !</button></div>
+     <div class="page3" id="page3"s
+     ontouchstart = "p3handleTouchStart(event)"
+     ontouchmove = "p3handleTouchMove(event)"
+     ontouchend = "p3handleTouchEnd(event)"><span class="center">Page 3</span>
+     <button type="submit" id="sub3">Sign Up !</button>
+    </div>
+</form>
+
+    </body>
+   <script>
+       var p1 = document.getElementById('page1');
+       var p2 = document.getElementById('page2');
+       var p3 = document.getElementById('page3');
+       var startingX;
+
+       function p1handleTouchStart(evt){
+           startingX = evt.touches[0].clientX;
+       }
+
+       function p1handleTouchMove(evt){
+           var touch = evt.touches[0];
+           var change = startingX - touch.clientX;
+           console.log(change)
+           if(change <0){
+               console.log(change)
+               return;
+           }
+           p1.style.left = '-' + change + 'px';
+           p2.style.display = 'block';
+           p2.style.left = (screen.width - change)  + 'px';
+           evt.preventDefault();
+       }
+
+       function p1handleTouchEnd(evt){
+           var change = startingX - evt.changedTouches[0].clientX;
+           var threshold = screen.width/3;
+           if(change < threshold){
+               p1.style.left = 0;
+               p2.style.left = '100%',
+               p2.style.display = 'none'
+        }else{
+            p1.style.transition = 'all .3s';
+            p2.style.transition = 'all .3s';
+            p1.style.left = '-100%';
+            p2.style.left = '0';
+            p2.style.display = 'block';
+        }
+       }
+       function p2handleTouchStart(evt){
+           startingX = evt.touches[0].clientX;
+           p1.style.transistion='';
+           p2.style.transform = '';
+           p3.style.transform = '';
+           p1.style.display = 'none';
+           p3.style.display = 'none';
+       }
+
+       function p2handleTouchMove(evt){
+           var touch = evt.touches[0];
+           var change = startingX - touch.clientX;
+           if(change >0){
+               p1.style.display = 'none';
+               p3.style.display ='block';
+               p2.style.left = '-'+change+'px';
+               p3.style.left = screen.width - change;
+           }
+         
+           p1.style.display = 'block';
+           p1.style.left = ((change)*(-1) - screen.width) + 'px';
+           p2.style.left = change*(-1)  + 'px';
+           evt.preventDefault();
+       }
+
+       function p2handleTouchEnd(evt){
+           var change =evt.changedTouches[0].clientX - startingX;
+           var half = screen.width/3;
+           if(change < half && change >0){
+               p1.style.left = '-100%';
+               p2.style.left = '0';
+               p3.style.left = '100%';
+               p1.style.display = 'none';
+               p2.style.display = 'block';
+               p3.style.display = 'none';
+              
+        }else if((change*(-1)) <half && change <0){
+               p1.style.display ='none';
+               p2.style.display = 'block';
+               p3.style.display = 'none';
+               p1.left.display = '-100%';
+               p2.style.left = '0';
+               p3.style.left = '100%';
+
+        }else if(change > half && change >0){
+            p1.style.display = 'block';
+            p2.style.display = 'none';
+            p3.style.display ='none';
+            p1.style.transition = 'all .3s';
+            p2.style.transition = 'all .3s';
+            p3.style.transition = 'all .3s';
+            p1.style.left = 0;
+            p2.style.left = '100%';
+            p3.style.left = '200%';
+        }else if((change*(-1)) > half && change <0){
+            p1.style.display = 'none';
+            p2.style.display = 'none' ;
+            p3.style.display =  'block';
+            p1.style.transition = 'all .3s';
+            p2.style.transition = 'all .3s';
+            p3.style.transition = 'all .3s';
+            p1.style.left = '-200%';
+            p2.style.left = '-100%';
+            p3.style.left = "0";
+
+        }
+       }
+
+         function p3handleTouchStart(evt){
+           startingX = evt.touches[0].clientX;
+       }
+
+       function p3handleTouchMove(evt){
+           var touch = evt.touches[0];
+           var change = startingX - touch.clientX;
+           console.log(change)
+           if(change >0){
+               console.log(change)
+               return;
+           }
+           p2.style.left = '-' + change + 'px';
+           p3.style.display = 'block';
+           p3.style.left = (screen.width - change)  + 'px';
+           evt.preventDefault();
+       }
+
+       function p3handleTouchEnd(evt){
+           var change = startingX - evt.changedTouches[0].clientX;
+           var threshold = screen.width/3;
+           if(change*(-1) > threshold){
+               p2.style.left = '0';
+               p3.style.left = '100%';
+               p1.style.display ='none';
+               p3.style.display = 'none';
+               p2.style.display = 'block';
+        }else{
+            p2.style.transition = 'all .3s';
+            p3.style.transition = 'all .3s';
+            p2.style.left = '-100%';
+            p3.style.left = '0';
+            p1.style.display ='none';
+            p2.style.display = 'none';
+            p3.style.display = 'block';
+        }
+       }
+   </script>
+    
+   
+     
+    
+</html>

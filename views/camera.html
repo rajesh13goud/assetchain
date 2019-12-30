@@ -1,0 +1,28 @@
+<html>
+    
+         <head> <link rel="manifest" href="../manifest.json">
+            <script async  src="https://cdn.rawgit.com/GoogleChrome/pwacompat/v2.0.1/pwacompat.min.js"></script>
+         </head>
+            
+        <h1>AssetzChain1</h1>
+    </head>
+    <body>
+        <form action = "/sendImage" method="POST" enctype="multipart/form-data">
+         
+            upload file : <input type="file" name="files" id="files">
+            <input type="text" name="inp" id="inp">
+            <button type="submit">Submit</button>
+        </form>
+
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="../index.js"></script>
+    <script>
+        $(document).ready(function(){
+            var filedata= $('#files')[0].files;
+            console.log(filedata);
+        })
+    </script>
+    
+</html>

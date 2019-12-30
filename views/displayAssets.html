@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Assetz Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- custom css -->
+    <link href="/css/custom.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
+        rel="stylesheet">
+    <!-- Bootstrap css and js -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <!--Font  Awesome icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+    <!-- bxslider -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <div class="home_container">
+            <div class="full_width">
+                <div class="logo">
+                    <img src="/images/assetz_logo.png">
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="home_container">
+            <div class="full_width">
+                <h6 class="my_asset">My Assets > Smartphone</h6>
+                <div class="full_width assetz_row">
+                    <div class="assetz_sec">
+                        <div class="assetz_col">
+                            <span class="assetz_count" id="assetzCount"></span>
+                            <div class="assetz_img">
+                                <img src="/images/smartphone.png">
+                            </div>
+                            <p class="assetz_name">Smartphone</p>
+                        </div>
+                    </div>
+                    <div class="assetz_sec float-right">
+                        <div class="assetz_col" id="addAsset">
+                            <input name="file" id="file" type="file" style="display:none" onclick="event.cancelBubble=true;">
+                            <div class="assetz_img">
+                                <span class="add_assetz_details"><i class="fas fa-plus-circle"></i></span>
+                            </div>
+                            <p class="assetz_name">Add more</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="full_width details_row" id="parent">
+                    <!-- <div class="details_col">
+                                <div class="assetz_status_col">
+                                    <span class="status info"><i class="fas fa-info-circle"></i></span>
+                                </div> -->
+                    <!-- <div class="assetz_status_info">
+                                    <h6 class="assetz_title">Smartphone</h6>
+                                    <p class="added_date">Added on 03/02/18 </p> -->
+                    <!-- <span>Id:</span><span>oopoi-0998-ooppp</span>
+                                </div> -->
+                    <!-- <span class="next_icon"><i class="fas fa-chevron-circle-right"></i></span> -->
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </section>
+    <div class="modal show" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-body">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <p class="mb-1">OCR Processing</p>
+                    <small>Please do not exit the app</small>
+                </div>
+            </div>
+        </div>
+</body>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: "/displayAssets",
+            success: function (result) {
+                console.log(result.user);
+                console.log(result);
+                let length = result.user.assets.length;
+                document.getElementById("assetzCount").innerHTML = length;
+                for (let i = 0; i < result.user.assets.length; i++) {
+
+                    var iDiv = document.createElement('div');
+                    iDiv.className = 'details_col';
+                    var iiDiv1 = document.createElement('div');
+                    iiDiv1.className = 'assetz_status_col';
+                    var iiDiv2 = document.createElement('div');
+                    iiDiv2.className = 'assetz_status_info';
+                    var iiDiv1Span = document.createElement('span');
+                    iiDiv1Span.className = 'status info';
+                    iiDiv1Spani = document.createElement('i');
+                    iiDiv1Spani.className = 'fas fa-info-circle';
+                    var iDivi = document.createElement('i');
+                    iDivi.className = 'fas fa-info-circle';
+                    var iiDiv2h6 = document.createElement('h6');
+                    iiDiv2h6.className = 'assetz_title';
+                    iiDiv2h6.innerHTML = result.user.assets[i].make;
+                    var iiDiv2p = document.createElement('p');
+                    iiDiv2p.className = 'added_date';
+                    //iiDiv2p.innerHTML = result.user.assets[i].assetId;
+                    var iSpan = document.createElement('span');
+                    iSpan.className = 'next_icon';
+
+                    var iSpani = document.createElement('i');
+                    iSpani.className = 'fas fa-chevron-circle-right';
+                    iSpani.onclick = function () { return passData(result.user.assets[i]._id); };
+                    iSpan.appendChild(iSpani);
+                    iiDiv1Span.appendChild(iiDiv1Spani);
+                    iiDiv1.appendChild(iiDiv1Span);
+                    iiDiv2.appendChild(iiDiv2h6);
+                    iiDiv2.appendChild(iiDiv2p);
+                    iDiv.appendChild(iiDiv1);
+                    iDiv.appendChild(iiDiv2);
+                    iDiv.appendChild(iSpan);
+                    document.getElementById('parent').appendChild(iDiv);
+                }
+            }
+
+            
+        })
+        function passData(data) {
+            console.log("The Asset Data : " + data);
+            window.location.href = '/singleAsset/' + data;
+            // $.ajax({
+            //     type : "GET",
+            //     url  : "/registration",
+            //     success : function(result){
+            //         window.location.href = '/singleAsset/'+data;
+            //     }
+            // })
+
+        }
+
+         const fileSelect = document.getElementById("addAsset"),
+            fileElem = document.getElementById("file");
+        console.log("1");
+        fileSelect.addEventListener("click", function (e) {
+
+            if (fileElem) {
+                console.log("2");
+                fileElem.click(function () {
+                    console.log("123");
+                    var event = window.event;
+                    event.stopPropagation();
+                });
+                console.log("3");
+
+            }
+        }, true);
+
+        var file = document.getElementById('file');
+    file.addEventListener("change", function () {
+        var data = document.getElementById("file");
+        var file = data.files[0];
+        console.log(file);
+        var formData = new FormData;
+        formData.append('file', file);
+        console.log(formData);
+        //document.getElementById("loader").style.display = "block";
+        $("#myModal").modal('show');
+        $.ajax({
+            url: '/image',
+            contentType: false,
+            data: formData,
+            method: 'POST',
+            processData: false,
+            success: function (result) {
+                console.log(result);
+                $("#myModal").modal('hide');
+                //document.getElementById("loader").style.display = "none";
+                window.location.href = '/ocr/' + result.asset._id + '/' + result.invoiceId;
+            }
+
+        })
+    })
+    })
+</script>
+
+</html>

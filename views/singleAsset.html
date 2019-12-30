@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Assetz Info</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- custom css -->
+        <link href="../css/custom.css" rel="stylesheet">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+        <!-- Bootstrap css and js -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <!--Font  Awesome icons-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        <!-- bxslider -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <div class="home_container">
+                <div class="full_width">
+                    <div class="logo">
+                        <img src="../images/assetz_logo.png">
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section>
+                <div class="home_container">
+                    <div class="full_width">
+                        <h6 class="my_asset">My Assets > Smartphone > Smartphone</h6>
+                        <div class="full_width details_row">
+                            <div class="details_col">
+                                <div class="assetz_status_col">
+                                    <span class="status info"><i class="fas fa-info-circle"></i></span>
+                                </div>
+                                <div class="assetz_status_info">
+                                    <h6 class="assetz_title">Smartphone</h6>
+                                    <p class="added_date">Added on 03/02/18 </p>
+                                </div>
+                                <span class="next_icon"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                        </div>
+                        <div class="assetz_info_block">
+                                <div class="details_col">
+                                    <div class="assetz_status_col">
+                                        <span class="status" id="inv"><i class="fas fa-check-circle"></i></span>
+                                    </div>
+                                    <div class="assetz_status_info">
+                                        <h6 class="assetz_title">Invoice</h6>
+                                        <p class="added_date" >Added on 03/02/18 </p>
+                                    </div>
+                                    <span class="next_icon" onclick="viewPdf()" data-target=".bd-example-modal-sm"><i class="fas fa-upload" id="invFile"></i></span>
+                                </div>
+                                <div class="details_col">
+                                    <div class="assetz_status_col">
+                                        <span class="status" id="wrt"><i class="fas fa-info-circle"></i></span>
+                                    </div>
+                                    <div class="assetz_status_info">
+                                        <h6 class="assetz_title">Warranty</h6>
+                                        <!-- <p class="added_date">Added on 03/02/18 </p> -->
+                                        <p class="added_date">Coming Soon </p>
+                                    </div>
+                                    <span class="next_icon"><i class="fas fa-upload" id="wrtFile"></i></span>
+                                </div>
+                                <div class="details_col">
+                                    <div class="assetz_status_col">
+                                        <span class="status" id="srv"><i class="fas fa-info-circle"></i></span>
+                                    </div>
+                                    <div class="assetz_status_info">
+                                        <h6 class="assetz_title">Service or Maintenance Bill</h6>
+                                        <!-- <p class="added_date">Added on 03/02/18 </p> -->
+                                        <p class="added_date">Coming Soon</p>
+                                    </div>
+                                    <span class="next_icon"><i class="fas fa-upload" id="srvFile"></i></span>
+                                </div>
+                                <div class="details_col">
+                                    <div class="assetz_status_col">
+                                        <span class="status" id="ins"><i class="fas fa-info-circle"></i></span>
+                                    </div>
+                                    <div class="assetz_status_info">
+                                        <h6 class="assetz_title">Insurance</h6>
+                                        <p class="added_date">Coming Soon</p>
+                                        <!-- <p class="added_date">Added on 03/02/18 </p> -->
+                                    </div>
+                                    <span class="next_icon"><i class="fas fa-upload" id="insFile"></i></span>
+                                </div>
+                                
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <!-- Modal  -->
+        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-body">
+                    <img class="logo" src="../images/assetz_logo.png">
+
+                    <a class="assetz_thumb" href="http://docs.google.com/viewerng/viewer?url=https://gateway.ipfs.io/ipfs/QmcmmK5LBydkCHtLgusti8uPjXtB5a6treHZbiok37WXLs"></a>
+                  
+                    <!-- <embed src="https://docs.google.com/viewerng/viewer?url=https://gateway.ipfs.io/ipfs/QmcmmK5LBydkCHtLgusti8uPjXtB5a6treHZbiok37WXLs" width="500" height="375">
+                         -->
+                  <!-- <object class ="assetz_thumb" data="https://gateway.ipfs.io/ipfs/QmcmmK5LBydkCHtLgusti8uPjXtB5a6treHZbiok37WXLs" type="application/pdf" width="100%" height="100%"> -->
+                    <!-- <object class="assetz_thumb" type="application/pdf" data="https://gateway.ipfs.io/ipfs/QmcmmK5LBydkCHtLgusti8uPjXtB5a6treHZbiok37WXLs"></object> -->
+                    <!-- <p>Your web browser doesn't have a PDF plugin.
+                    Instead you can <a href="https://gateway.ipfs.io/ipfs/QmcmmK5LBydkCHtLgusti8uPjXtB5a6treHZbiok37WXLs">click here to
+                    download the PDF file.</a></p> -->
+                  <!-- </object> -->
+                  <!-- <object class="assetz_thumb" type="application/pdf"
+    data="https://gateway.ipfs.io/ipfs/QmcmmK5LBydkCHtLgusti8uPjXtB5a6treHZbiok37WXLs"
+    width="250"
+    height="200">
+</object> -->
+<!-- <iframe src="https://gateway.ipfs.io/ipfs/QmcmmK5LBydkCHtLgusti8uPjXtB5a6treHZbiok37WXLs" allowfullscreen="true" title="iframe Example 1" width="400" height="300" allow-modals="true">
+    <p>Your browser does not support iframes.</p>
+  </iframe> -->
+  <!-- <a href="https://gateway.ipfs.io/ipfs/QmcmmK5LBydkCHtLgusti8uPjXtB5a6treHZbiok37WXLs" target="_blank">ABC PDF file</a> -->
+
+
+                </div>
+
+            </div>
+        </div>
+    </body>
+    <script>
+        //'SRV', 'INS','WRT'
+        //fas fa-edit,fas fa-upload
+
+        $(document).ready(function(){
+            $.ajax({
+                type: "GET",
+                url : "/displayAssets",
+                success: function(result){
+
+                    var assetId = window.location.pathname.split('/')[2];
+                    console.log("The Asset Id is: "+ assetId);
+                    console.log(result);
+                    for(var i=0;i<result.user.assets.length;i++){
+                    console.log("its here but");
+                        if(result.user.assets[i]._id == assetId){
+                            console.log("its here macha")
+                           // console.log(result.user.assets[i].invoices[j].length);
+                            for(var j =0;j<result.user.assets[i].invoices.length;j++){
+                                console.log("its also here")
+                                if(result.user.assets[i].invoices[j].invoiceType == "INV"){
+                                    console.log("omg its here!!!")
+                                    document.getElementById('inv').className = 'status success';
+                                    document.getElementById('invFile').className = 'fas fa-external-link-alt';
+                                    //document.getElementById('assetImage').src = 'https://gateway.ipfs.io/ipfs/'+result.user.assets[i].invoices[j].multihash;
+                                    console.log("https://gateway.ipfs.io/ipfs/"+result.user.assets[i].invoices[j].multihash)
+                                }
+                                if(result.user.assets[i].invoices[j].invoiceType == "SRV"){
+                                    document.getElementById('srv').className = "status success";
+                                    docume.getElementById('srvFile').className = "fas fa-external-link-alt";
+                                }
+                                if(result.user.assets[i].invoices[j].invoiceType == "WRT"){
+                                    document.getElementById('wrt').className = "status success";
+                                    docume.getElementById('wrtFile').className = "fas fa-external-link-alt";
+                                }
+                                if(result.user.assets[i].invoices[j].invoiceType == "INS"){
+                                    document.getElementById('ins').className = "status success";
+                                    docume.getElementById('insFile').className = "fas fa-external-link-alt";
+                                }
+
+
+                            }
+                        }
+                    }
+                }
+            })
+        })
+
+        function viewPdf(){
+            window.location = "http://docs.google.com/viewerng/viewer?embedded=true&url=https://gateway.ipfs.io/ipfs/QmcmmK5LBydkCHtLgusti8uPjXtB5a6treHZbiok37WXLs"
+        }
+    </script>
+</html>
+
+

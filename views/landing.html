@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AssetzChain Landing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- custom css -->
+    <link href="/css/custom.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
+        rel="stylesheet">
+    <!-- Bootstrap css and js -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <!--Font  Awesome icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+    <!-- bxslider -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <div class="home_container">
+            <div class="full_width">
+                <div class="logo">
+                    <img src="/images/assetz_logo.png">
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="home_container">
+            <div class="full_width">
+                <h6 class="my_asset">My Assets</h6>
+                <div id="error-box1" style="color: red"></div>
+
+                <div class="full_width assetz_row">
+                    <div class="assetz_sec">
+                        <div class="assetz_col" id="assetsDisplay">
+                            <!-- <span class="add_assetz" id="add_assetz"><i class="fas fa-plus-circle" onclick="event.cancelBubble=true"></i></span> -->
+                            
+                            <div class="assetz_img">
+                                <img src="/images/smartphone.png">
+                            </div>
+                            <p class="assetz_name">Smartphone</p>
+
+                        </div>
+                        <span class="add_assetz" id="add_assetz" onclick="event.cancelBubble=true">Add Assetz</span>
+                        <input name="file" id="file" type="file" style="display:none" onclick="event.cancelBubble=true;">
+                    </div>
+                    <div class="assetz_sec float-right">
+                        <div class="assetz_col ">
+                            <div class="comming_soon">
+                                <p>Coming soon</p>
+                            </div>
+                            <!-- <span class="add_assetz"><i class="fas fa-plus-circle" data-toggle="modal" data-target=".bd-example-modal-sm"></i></span> -->
+                            <div class="assetz_img">
+                                <img src="/images/refrigerator.png">
+                            </div>
+                            <p class="assetz_name">Refrigerator</p>
+                        </div>
+                        <span class="add_assetz" id="add_assetz" onclick="event.cancelBubble=true">Add Assetz</span>
+
+                    </div>
+                    <div class="assetz_sec">
+                        <div class="assetz_col">
+                            <div class="comming_soon">
+                                <p>Coming soon</p>
+                            </div>
+                            <!-- <span class="add_assetz"><i class="fas fa-plus-circle"></i></span> -->
+                            <div class="assetz_img">
+                                <img src="/images/microwave.png">
+                            </div>
+                            <p class="assetz_name">Microwave</p>
+                        </div>
+                        <span class="add_assetz" id="add_assetz" onclick="event.cancelBubble=true">Add Assetz</span>
+
+                    </div>
+                    <div class="assetz_sec float-right">
+                        <div class="assetz_col">
+                            <div class="comming_soon">
+                                <p>Coming soon</p>
+                            </div>
+                            <!-- <span class="add_assetz"><i class="fas fa-plus-circle"></i></span> -->
+                            <div class="assetz_img">
+                                <img src="/images/wasing_machine.png">
+                            </div>
+                            <p class="assetz_name">Wash Machine</p>
+                        </div>
+                        <span class="add_assetz" id="add_assetz" onclick="event.cancelBubble=true">Add Assetz</span>
+
+                    </div>
+                    <div class="assetz_sec">
+                        <div class="assetz_col">
+                            <div class="comming_soon">
+                                <p>Coming soon</p>
+                            </div>
+                            <!-- <span class="add_assetz"><i class="fas fa-plus-circle"></i></span> -->
+                            <div class="assetz_img">
+                                <img src="/images/television.png">
+                            </div>
+                            <p class="assetz_name">Television</p>
+                        </div>
+                        <span class="add_assetz" id="add_assetz" onclick="event.cancelBubble=true">Add Assetz</span>
+
+                    </div>
+                    <div class="assetz_sec float-right">
+                        <div class="assetz_col ">
+                            <div class="comming_soon">
+                                <p>Coming soon</p>
+                            </div>
+                            <!-- <span class="add_assetz"><i class="fas fa-plus-circle"></i></span> -->
+                            <div class="assetz_img">
+                                <img src="/images/computer.png">
+                            </div>
+                            <p class="assetz_name">Computer</p>
+                        </div>
+                        <span class="add_assetz" id="add_assetz" onclick="event.cancelBubble=true">Add Assetz</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="modal show" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-body">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <p class="mb-1">OCR Processing</p>
+                <small>Please do not exit the app</small>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+
+    // open Modal with loader
+    // $('#bd-example-modal-sm').modal();
+
+    $(document).ready(function () {
+        // $("#myModal").modal('show');
+        const fileSelect = document.getElementById("add_assetz"),
+            fileElem = document.getElementById("file");
+        console.log("1");
+        fileSelect.addEventListener("click", function (e) {
+
+            if (fileElem) {
+                console.log("2");
+                fileElem.click(function () {
+                    console.log("123");
+                    var event = window.event;
+                    event.stopPropagation();
+                });
+                console.log("3");
+
+            }
+        }, true);
+    });
+
+    //     function handleFiles(file){
+
+    //         console.log("This is the file : "+JSON.stringify(file));
+    //         var data = document.getElementById("file");
+    //         var file = data.files[0];
+    //         console.log(file);
+    //         var formData = new FormData;
+    //         formData.append('file',file);
+    //         console.log(formData);
+    //         //document.getElementById("loader").style.display = "block";
+    //         $("#myModal").modal('show');
+    //         $.ajax({
+    //              url: '/image',
+    //              contentType : false,
+    //              data: formData,
+    //              method: 'POST',
+    //              processData : false,
+    //              success:function(result){
+    //                             console.log(result);
+    //                             $("#myModal").modal('hide');
+    //                             //document.getElementById("loader").style.display = "none";
+    //                             window.location.href = '/ocr/'+result.asset._id+'/'+result.invoiceId;
+    //                         }
+    //                         //onclick="assetsDisplay()
+
+    // })
+
+
+    // // document.getElementById('assetsDisplay').onclick(function(){
+
+    // // })
+    //     }
+
+    //       function assetsDisplay(){
+    //      console.log("yes the div tag is clicked");
+    //      var e = window.event;
+    //      console.log(e);
+    //      console.log("the type is" + e.target.type);
+    //      console.log(e.target.id);
+    //      console.log(e.target.id === "file");
+    //      //window.location.href = "/mobileAssets";
+    //     //  if(e.target.id === "file"  || e.target.id === ""){
+    //     //      console.log("yes");
+    //     //  }else{
+    //     //         //e.stopPropagation();
+    //     //         window.location.href = "/mobileAssets";console.log("1");
+    //     //  }
+    //} 
+
+    // $('#file').click(function (event) {
+    //     event.stopPropagation();
+    //     alert(event.target.id);
+    // })
+    var allAssets = document.getElementById('assetsDisplay');
+    allAssets.addEventListener("click", function (e) {
+        window.location.href = "/mobileAssets";
+    }, true)
+
+
+    var file = document.getElementById('file');
+    file.addEventListener("change", function () {
+        var data = document.getElementById("file");
+        var file = data.files[0];
+        console.log(file);
+        var formData = new FormData;
+        formData.append('file', file);
+        console.log(formData);
+        //document.getElementById("loader").style.display = "block";
+        $("#myModal").modal('show');
+        $.ajax({
+            url: '/image',
+            contentType: false,
+            data: formData,
+            method: 'POST',
+            processData: false,
+            success: function (result) {
+                console.log(result);
+                if(result.status == "error"){
+                    $('#error-box1').html("Internal Error : Please refresh and try again");   
+                }
+                else{
+                window.location.href = '/ocr/' + result.asset._id + '/' + result.invoiceId;
+                }
+                $("#myModal").modal('hide');
+                //document.getElementById("loader").style.display = "none";
+             
+            },
+            error : function(result){
+                $('#error-box1').html("Internal Error : Please refresh and try again");
+                $("#myModal").modal('hide');
+            }
+
+        })
+    })
+</script>
+
+</html>

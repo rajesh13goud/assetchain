@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>AssetzChain Authentication</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- custom css -->
+        <link href="/css/custom.css" rel="stylesheet">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+        <!-- Bootstrap css and js -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <!--Font  Awesome icons-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        <!-- bxslider -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
+
+    </head>
+    <body>
+        <header>
+            <div class="home_container">
+                <div class="full_width">
+                    <div class="logo">
+                        <img src="/images/assetz_logo.png">
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section>
+                <div class="home_container">
+                    <div class="full_width">
+                        <div class="tab_row">
+                                <ul class="tabs">
+                                    <li class="tab-link current" data-tab="signup">SignUp</li>
+                                    <li class="tab-link" data-tab="login">Login</li>
+                                </ul>
+
+                                <div id="signup" class="tab-content current">
+                                        <div id="error-box" style="color: red"></div>
+
+                                    <form class="auth_form" id="signupForm" name="signupForm" novalidate method="POST" action="">
+                                        <div class="form-group">
+                                            <label>Email ID</label>
+                                            <input class="form-control" id="email" name="email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Mobile Number</label>
+                                            <input class="form-control"  id="mobile" name="mobile">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input class="form-control" type="password" id="pass" name="password">
+                                        </div>
+                                        <div class="form-group">
+                                                <label>Confirm Password</label>
+                                                <input class="form-control" type="password" id="cpass" name="password">
+                                            </div>
+                                        <button class="start_btn login_btn" id="submit">Proceed <span><i class="fas fa-chevron-circle-right"></i></span></button>
+                                 </form>
+                                </div>
+                                <div id="login" class="tab-content">
+                                    <form class="auth_form" id="loginForm" name="loginForm" novalidate method="POST" action="">
+                                        <div class="form-group">
+                                            <label>Email ID or Mobile Number</label>
+                                            <input class="form-control" id="emailPhone" name="email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input class="form-control" type="password" id="password" name="password">
+                                        </div>
+                                        <button class="start_btn login_btn" id="logon">Proceed <span><i class="fas fa-chevron-circle-right"></i></span></button>
+
+                                    </form>
+                                    <div id="error-box1" style="color: red"></div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <!-- <div class="footer">
+            <div class="home_container">
+                <button class="start_btn" onclick="goToNext()">Proceed <span><i class="fas fa-chevron-circle-right"></i></span></button>
+            </div>
+        </div> -->
+    </body>
+
+    <script>
+        // function to call bxslider
+        $(document).ready(function(){
+            $('.bxslider').bxSlider();
+            $("#submit").click(function(e){
+                e.preventDefault();
+                var email  = document.getElementById("email").value;
+                var mobile = document.getElementById("mobile").value;
+                var pass   = document.getElementById("pass").value;
+                var cpass  = document.getElementById("cpass").value;
+                $.ajax({
+                    type : "POST",
+                    url  : "/registration",
+                    data :{
+                        email : email,
+                        mobile : mobile,
+                        pass   : pass,
+                        cpass  : cpass
+                    },
+                    success : function(result){
+                    console.log(result);
+                    if(result.msg === "success"){
+                        window.location.href = 'otp'
+                    }else{
+                       console.log("its here" + result.msg);
+                       if(result.length === undefined){
+                           console.log("its also here");
+                           $('#error-box').append(result.msg + "<br>");
+                       }else{
+                        $('#error-box').html("");      
+                    for(i=0;i<result.length;i++){  
+                        console.log(result[i].msg); 
+                             
+                    $('#error-box').append(result[i].msg + "<br>")}
+                    }}
+                }
+                }
+               )
+            
+        });
+        $("#logon").click(function(e) { 
+           console.log("its here also")                 
+           e.preventDefault();
+           var username = document.getElementById("emailPhone").value;
+           var password = document.getElementById("password").value;
+            $.ajax({
+              type: "POST",
+              url: "/login",
+              data: { 
+                  username: username, // < note use of 'this' here
+                  password: password
+              },
+              success: function(result) {
+                  console.log(result);
+                  //localStorage.setItem("ACToken",result.token);
+                  window.location.href="/home"
+                  alert('ok');
+                  
+              },
+              error: function(result) {
+                  //alert('error');
+                  $('#error-box1').html("Invalid Email/Mobile or Password");
+              }
+          });
+      });
+        // function to call tab
+        $('ul.tabs li').click(function(){
+            var tab_id = $(this).attr('data-tab');
+
+            $('ul.tabs li').removeClass('current');
+            $('.tab-content').removeClass('current');
+
+            $(this).addClass('current');
+            $("#"+tab_id).addClass('current');
+        })
+    })
+    
+           
+        
+        // function goToHome(){
+        //     window.location.href
+        // }         
+
+
+    </script>
+</html>

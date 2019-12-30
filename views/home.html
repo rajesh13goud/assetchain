@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="manifest" href="/manifest.json">
+        <meta charset="UTF-8">
+        <title>AssetzChain Home</title>
+        
+     <script async  src="https://cdn.rawgit.com/GoogleChrome/pwacompat/v2.0.1/pwacompat.min.js"></script>
+     <script src="/index.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- custom css -->
+        <link href="/css/custom.css" rel="stylesheet">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+        <!-- Bootstrap css and js -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <!--Font  Awesome icons-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        <!-- bxslider -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <div class="home_container">
+                <div class="full_width">
+                    <div class="logo">
+                        <img src="/images/assetz_logo.png">
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section>
+                <div class="home_container">
+                    <div class="full_width">
+                        <div class="slider_row">
+                                <ul class="bxslider">
+                                    <li>
+                                        <div class="slider_col">
+                                            <img src="/images/v2_pnj3fd.png" />
+                                        </div>
+                                        <p class="slider_text"><b>Scan or Upload</b> your Invoices and Receipts seamlessly through <b>OCR</b></p>
+                                    </li>
+                                    <li>
+                                        <div class="slider_col slider1">
+                                            <img src="/images/v2_pnj3fd.png" />
+                                        </div>
+                                        <p class="slider_text"><b>Eliminate guesswork,</b> track your service and warranty details in <b>One Place</b></p>
+                                    </li>
+                                    <li>
+                                        <div class="slider_col slider2">
+                                            <img src="/images/slider1.png" />
+                                        </div>
+                                        <p class="slider_text"><b>Share or Sell</b> your trusted assets directly to others with <b>No Middlemen</b> involved</p>
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <div class="footer">
+            <div class="home_container">
+                <button class="start_btn" onclick="gotoAuth()">Get started <span><i class="fas fa-chevron-circle-right"></i></span></button>
+            </div>
+        </div>
+    </body>
+    <script>
+        $(document).ready(function(){
+            $('.bxslider').bxSlider();
+        });
+        function gotoAuth() {
+            window.location.href = 'registration';
+        }
+    </script>
+</html>

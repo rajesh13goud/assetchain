@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Verify Assetz</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- custom css -->
+        <link href="../../css/custom.css" rel="stylesheet">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+        <!-- Bootstrap css and js -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <!--Font  Awesome icons-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        <!-- bxslider -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <div class="home_container">
+                <div class="full_width">
+                    <div class="logo">
+                        <img src="../../images/assetz_logo.png">
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section>
+                <div class="home_container">
+                    <div class="full_width">
+                        <P class="asset_info">You have Successfully added the asset to the Ethereum Blockchain </P>
+                        <h3 class="my_asset mb-4">Blockchain Details</h3>
+                        <form class="login_form">
+                            <div class="form-group">
+                                <label class="verify_label">BlockHash:</label>
+                                <p class="verify_field_text" id="blockhash">skldjf89du7sd897df89789sd7sd89f7sd</p>
+                            </div> 
+                            <div class="form-group">
+                                <label class="verify_label">BlockNumber:</label>
+                                <p class="verify_field_text" id="blocknumber">skldjf89du7sd897df89789sd7sd89f7sdzddsssfds454463k5hjkh4jk345h3k</p>
+                            </div> 
+                            <div class="form-group">
+                                <label class="verify_label">TransactionHash:</label>
+                                <p class="verify_field_text" id="trnxhash">skldjf89du7sd897df89789sd7sd89f7sdzddsssfds454463k5hjkh4jk345h3k</p>
+                            </div> 
+                            <div class="form-group">
+                                <label class="verify_label">Contract Address:</label>
+                                <p class="verify_field_text" id="contractaddress">skldjf89du7sd897df89789sd7sd89f7sdzddsssfds454463k5hjkh4jk345h3k</p>
+                            </div>
+                            <div class="form-group">
+                                <label class="verify_label">Gas Used:</label>
+                                <p class="verify_field_text" id="gasused">skldjf89du7sd897df89789sd7sd89f7sdzddsssfds454463k5hjkh4jk345h3k</p>
+                            </div> 
+                            <div class="form-group">
+                                <label class="verify_label">Ether Scan</label>
+                                <a class="verify_field_text" href="#" id="etherscan">skldjf89du7sd897df89789sd7sd89f7sdzddsssfds454463k5hjkh4jk345h3k</a>
+                            </div> 
+                        </form>
+                    </div>
+                </div>
+        </section>
+        <div class="full_width">
+            <div class="home_container">
+                <button class="start_btn" onclick="gotoAuth()">Go Back to Home</button>
+            </div>
+        </div>
+    </body>
+    <script>
+        $(document).ready(function(){
+            $('.bxslider').bxSlider();
+       
+        // function gotoAuth() {
+        //     window.location.href = 'auth.html';
+        // }
+        
+        
+        var invId = window.location.pathname.split('/')[3];
+        var assetId = window.location.pathname.split('/')[2];
+        //console.log(obj);
+        $.ajax({
+        type : "GET",
+        url : "/ethResult/"+assetId+"/"+invId,
+        success : function(result){
+        console.log(result);
+        console.log(result.transactionHash)
+        var dis = 'https://ropsten.etherscan.io/tx/'+result.transactionHash;
+        console.log("this is the link :"+dis);
+        document.getElementById('blockhash').innerHTML = result.blockHash;
+        document.getElementById('blocknumber').innerHTML = result.blockNumber;
+        document.getElementById('trnxhash').innerHTML = result.transactionHash;
+        document.getElementById('contractaddress').innerHTML = result.contract;
+        document.getElementById('gasused').innerHTML = result.gasUsed;
+        document.getElementById('etherscan').innerHTML = dis;
+        document.getElementById('etherscan').setAttribute('href', dis);
+        }
+        })
+    });
+
+    function gotoAuth(){
+        window.location.href = '/home';
+    }
+        
+        
+    </script>
+</html>
